@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio #2</title>
+</head>
+<body>
+    <a href="ejercicio1.html">Ir a ejercicio 1</a>
+    <a href="ejercicio3.html">Ir a ejercicio 3</a>
+    <a href="ejercicio4.html">Ir a ejercicio 4</a>
+    <a href="ejercicio5.html">Ir a ejercicio 5</a>
+    <h1>Ejercicio 2</h1>
+    <script>        
+    //ejercicio 2
+    //declaración de variables
+        let num1 = +prompt('Ingrese un número mayor a 0')
+        let num2 = +prompt('Ingrese otro número mayor a 0 y distinto del anterior')
+    //evaluación para detectar valores menores a 0 e iguales
+        if(num1 > 0 & num1 != num2 & num2 > 0 ){
+            let sumar = num1 + num2
+            let resta = num1 - num2
+            let multi = num1 * num2
+            let divid = num1 / num2
+            let modul = num1 % num2
+            document.write(`Ejercicio 2#: <br> el resultado de la suma es ${sumar} <br> el resultado de la resta es ${resta} <br> el resultado de la multiplicación es: ${multi} <br> el resultado de la división es ${divid} <br> el resultado del módulo es ${modul}`)
+        } else {
+            document.write ('Valores ingresados no cumplen con los parámetros solicitados <br> recargue la página e inténtelo nuevamente')
+        }
+    </script>
+</body>
+</html>

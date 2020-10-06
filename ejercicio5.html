@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio #5</title>
+</head>
+<body>
+    <a href="ejercicio1.html">Ir a ejercicio 1</a>
+    <a href="ejercicio2.html">Ir a ejercicio 2</a>
+    <a href="ejercicio3.html">Ir a ejercicio 3</a>
+    <a href="ejercicio4.html">Ir a ejercicio 4</a>
+
+    <h1>Ejercicio 5</h1>
+
+    <h3>Ingrese el 1° número</h3>
+
+    <input type="text" id="uno" />
+
+    <h3>Ingrese el 2° número</h3>
+
+    <input type="text" id="dos" />
+
+    <h3>Ingrese el 3° número</h3>
+
+    <input type="text" id="tre" />
+
+    <h3>Ingrese el 4° número</h3>
+
+    <input type="text" id="cua" />
+
+    <h3>Ingrese el 5° número</h3>
+
+    <input type="text" id="cin" />
+    
+    <button id="button">Siguiente</button>
+    <div id="resultado"></div>
+    <script>
+        // identificación boton y div resultado
+        let btn = document.getElementById("button")
+        let resultado = document.getElementById("resultado")
+        //evento click boton                  
+        btn.onclick = function(event) {
+            //evaluación: si resultado tiene nodos, borrar el primero
+            if(resultado.childNodes.length !== 0){
+                let a = resultado.firstChild
+                resultado.removeChild(a)
+                console.log("funciona")
+            }
+            //variables ingresadas                      
+            let uno = parseFloat( document.getElementById("uno").value)
+            let dos = parseFloat( document.getElementById("dos").value)
+            let tres = parseFloat(document.getElementById("tre").value)
+            let cuatro = parseFloat(document.getElementById("cua").value)
+            let cinco = parseFloat(document.getElementById("cin").value)
+            // cálculo aritmético                          
+            let sumatoria = uno + dos + tres + cuatro + cinco
+            let promedio = (sumatoria)/5           
+            //inserción html
+            resultado.insertAdjacentHTML("afterbegin", `<h2>La sumatoria de los valores es ${sumatoria} y su promedio es ${promedio}</h2>`)
+            }
+    </script>    
+    
+</body>
+</html>

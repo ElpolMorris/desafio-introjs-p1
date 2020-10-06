@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio #3</title>
+</head>
+<body>
+    <a href="ejercicio1.html">Ir a ejercicio 1</a>
+    <a href="ejercicio2.html">Ir a ejercicio 2</a>
+    <a href="ejercicio4.html">Ir a ejercicio 4</a>
+    <a href="ejercicio5.html">Ir a ejercicio 5</a>
+    <h1>Ejercicio 3</h1>
+    <input type="text" id="celsius"/>
+    <button id="button">convertir</button>
+    <div id="resultado"></div>
+    <script>
+        // identificación boton y div resultado
+        let btn = document.getElementById("button")
+        let resultado = document.getElementById("resultado")
+        //evento click boton                     
+        btn.onclick = function(event) {
+            //evaluación: si resultado tiene nodos, borrar el primero
+            if(resultado.childNodes.length !== 0){ 
+                let a = resultado.firstChild
+                resultado.removeChild(a)
+                console.log("funciona")
+            }
+            //variable grados celsius  
+            let celsius = parseFloat( document.getElementById("celsius").value)
+            console.log(celsius)
+            //evaluación para excluir valores imposibles
+            if(celsius < -275.15){
+                alert("VALOR IMPOSIBLE, INTENTE DE NUEVO")
+            } else {
+                // variables de conversion de grados + insercion en html
+                let kelvin = celsius + 275.15
+                let fahrenheit = (celsius * (9/5))+32
+                resultado.insertAdjacentHTML("afterbegin", `<h2 id= dlt>${celsius} °C equivale a ${kelvin} °K y a ${fahrenheit} °F</h2>`)
+            }    
+    }
+  
+        
+    </script>
+</body>
+</html>

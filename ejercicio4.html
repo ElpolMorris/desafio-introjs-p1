@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio #4</title>
+</head>
+<body>
+    <a href="ejercicio1.html">Ir a ejercicio 1</a>
+    <a href="ejercicio2.html">Ir a ejercicio 2</a>
+    <a href="ejercicio3.html">Ir a ejercicio 3</a>
+    <a href="ejercicio5.html">Ir a ejercicio 5</a>
+    <h1>Ejercicio 4</h1>
+    <input type="text" id="dias"/>
+    <button id="button">convertir</button>
+    <div id="resultado"></div>
+    <script>
+        // identificación boton y div resultado
+        let btn = document.getElementById("button")
+        let resultado = document.getElementById("resultado")
+         //evento click boton                      
+        btn.onclick = function(event) {
+            //evaluación: si resultado tiene nodos, borrar el primero
+            if(resultado.childNodes.length !== 0){
+                let a = resultado.firstChild
+                resultado.removeChild(a)
+                console.log("funciona")
+            }
+            //variable de dias ingresados   
+            let dias = parseFloat( document.getElementById("dias").value)
+            //evaluación para excluir valores no permitidos            
+            if(dias < 0){
+                alert("VALOR IMPOSIBLE, INTENTE DE NUEVO")
+                //si dias es igual a cero, escribir 0
+            } else if(dias === 0){
+                resultado.insertAdjacentHTML("afterend", `<h2 id= dlt>0 años, 0 semanas, 0 dias</h2>`)
+            }else {
+                //variables de años semanas y dias restantes
+                let anhos = Math.floor(dias/365)
+                let semana = Math.floor((dias - ( anhos * 365 ))/7)
+                let diasRest = dias - (anhos*365) - (semana*7)
+                resultado.insertAdjacentHTML("afterbegin", `<h2>${anhos} años, ${semana} semanas, ${diasRest} dias </h2>`)
+            }    
+        } 
+        
+    </script>
+</body>
+</html>
